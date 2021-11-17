@@ -3,7 +3,7 @@
     <div class="main-title">結帳</div>
     <div class="main-wrapper">
       <div class="main-left">
-        <Step />
+        <Step :step="step"/>
         <Form />
       </div>
       <div class="main-right">
@@ -21,6 +21,11 @@ export default {
   name: 'Shop',
   components: {
     Step, Form, Cart
+  },
+  data() {
+    return {
+      step: 1
+    }
   }
 }
 </script>

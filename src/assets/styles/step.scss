@@ -1,0 +1,90 @@
+.step {
+  height: 56px;
+  padding-top: 24px;
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .step-progress {
+      display: flex;
+      align-items: center;
+      #step1::after {
+        content: '1'
+      }
+      #step2::after {
+        content: '2'
+      }
+      #step3::after {
+        content: '3'
+      }
+      &-circle {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 1px solid #AFB1BD;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: 700;
+        color: #AFB1BD;
+      }
+      &-label {
+        color: #AFB1BD;;
+        display: none;
+      }
+      &.completed {
+        .step-progress-circle {
+          background: #2A2A2A;
+          border: none;
+        }
+        .step-progress-label {
+          color: #2A2A2A;
+        }
+        #step1::after,#step2::after,#step3::after {
+          content: '\2714';
+        }
+      }
+      &.active  {
+        .step-progress-circle {
+          border: 1px solid #2A2A2A;
+          color: #2A2A2A;
+        }
+        .step-progress-label {
+          color: #2A2A2A;
+        }
+      }
+    }
+    .step-connect {
+      flex: 1;
+      margin-left: 22px;
+      margin-right: 22px;
+      height: 2px;
+      background: #F0F0F5;
+      &.completed {
+        background: #2A2A2A;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 372px) {
+  .step {
+    height: 72px;
+    padding-top: 48px;
+    &-container {
+      .step-progress {
+        &-circle {
+          width: 24px;
+          height: 24px;
+          font-size: 12px;
+        }
+        &-label {
+          display: block;
+          margin-left: 8px;
+          flex: 1;
+        }
+      }
+    }
+  }
+}
