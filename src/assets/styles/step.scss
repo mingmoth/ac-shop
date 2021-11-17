@@ -21,25 +21,25 @@
         width: 32px;
         height: 32px;
         border-radius: 50%;
-        border: 1px solid #AFB1BD;
+        border: 1px solid var(--step-text);
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 16px;
         font-weight: 700;
-        color: #AFB1BD;
+        color: var(--step-text);
       }
       &-label {
-        color: #AFB1BD;;
+        color: var(--step-text);;
         display: none;
       }
       &.completed {
         .step-progress-circle {
-          background: #2A2A2A;
+          background: var(--text-content);
           border: none;
         }
         .step-progress-label {
-          color: #2A2A2A;
+          color: var(--text-content);
         }
         #step1::after,#step2::after,#step3::after {
           content: '\2714';
@@ -47,11 +47,11 @@
       }
       &.active  {
         .step-progress-circle {
-          border: 1px solid #2A2A2A;
-          color: #2A2A2A;
+          border: 1px solid var(--text-content);
+          color: var(--text-content);
         }
         .step-progress-label {
-          color: #2A2A2A;
+          color: var(--text-content);
         }
       }
     }
@@ -60,9 +60,9 @@
       margin-left: 22px;
       margin-right: 22px;
       height: 2px;
-      background: #F0F0F5;
+      background: var(--step-text);
       &.completed {
-        background: #2A2A2A;
+        background: var(--text-content);
       }
     }
   }

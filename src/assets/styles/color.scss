@@ -1,0 +1,26 @@
+:root {
+  --bg: #FFFFFF;
+  --pink: #F67599;
+  --text-content: #2A2A2A;
+  --input-border: #4A4A4A;
+  --input-label: #808080;
+  --input-holder: #999999;
+  --step-text: #AFB1BD;
+  --step-bg: #333333;
+  --cart-bg: #FFFFFF;
+  --cart-button: #F0F0F5;
+  --footer-bg: #E5E5E5;
+  --footer-text: #808080;
+}
+
+[data-theme="dark"] {
+  --bg: #000000;
+  --text-content: #FFFFFF;
+  --input-border: #5E5E5E;
+  --input-label: #FFFFFF 40%;
+  --input-holder: #FFFFFF 40%;
+  --cart-bg: #383838;
+  --cart-button: #808080;
+  --footer-bg: #333333;
+  --footer-text: #FFFFFF 60%;
+}
