@@ -61,11 +61,30 @@
       }
     }
   }
+  &-cardName, &-cardNum {
+    padding-bottom: 24px;
+  }
+  &-validate {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 30px;
+    padding-bottom: 24px;
+    
+    &-date {
+      grid-column: 1/4;
+    }
+    &-cvc {
+      grid-column: 4/7;
+    }
+  }
 }
 
 @media screen and (min-width: 372px) {
   .form {
     padding-top: 64px;
+    form {
+      height: 288px;
+    }
     &-calling {
       grid-template-columns: repeat(6, 1fr);
       grid-gap: 30px;

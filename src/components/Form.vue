@@ -1,6 +1,6 @@
 <template>
   <div class="form">
-    <form action="">
+    <form action="" v-if="step === 1">
       <div class="form-title">寄送地址</div>
       <div class="form-calling">
         <div class="form-calling-title">
@@ -38,7 +38,7 @@
         </div>
       </div>
     </form>
-    <form action="">
+    <form action="" v-else-if=" step === 2">
       <div class="form-title">運送方式</div>
       <div class="form-ship">
         <input type="radio" name="ship" id="ship" checked>
@@ -61,5 +61,38 @@
         </div>
       </div>
     </form>
+    <form action="" v-else>
+      <div class="form-title">付款資訊</div>
+      <div class="form-cardName">
+        <label for="cardName">持卡人姓名</label>
+        <input type="text" name="cardName" id="cardName" placeholder="John Doe" required>
+      </div>
+      <div class="form-cardNum">
+        <label for="cardNum">卡號</label>
+        <input type="text" name="cardNum" id="cardNum" placeholder="1111 2222 3333 4444" required>
+      </div>
+      <div class="form-validate">
+        <div class="form-validate-date">
+          <label for="date">有效期限</label>
+          <input type="text" name="date" id="date" placeholder="MM/YY" required>
+        </div>
+        <div class="form-validate-cvc">
+          <label for="cvc">CVC / CCV</label>
+          <input type="number" name="cvc" id="cvc" placeholder="123" required>
+        </div>
+      </div>
+    </form>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'Form',
+  props: {
+    step: {
+      type: Number,
+      default: 1
+    }
+  }
+}
+</script>

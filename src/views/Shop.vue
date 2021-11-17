@@ -4,7 +4,7 @@
     <div class="main-wrapper">
       <div class="main-left">
         <Step :step="step"/>
-        <Form />
+        <Form :step="step"/>
       </div>
       <div class="main-right">
         <Cart />
