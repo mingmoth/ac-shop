@@ -1,0 +1,95 @@
+.cart {
+  border: 1px solid var(--cart-border);
+  padding: 18px 16px 0px 16px;
+  &-title {
+    display: none;
+  }
+  &-item {
+    display: flex;
+    margin-bottom: 18px;
+    height: 100px;
+    #jean1 {
+      background: var(--jean1-url);
+      background-size: 100% 100%;
+    }
+    #jean2 {
+      background: var(--jean2-url);
+      background-size: 100% 100%;
+    }
+    &-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 4px;
+    }
+    &-body {
+      text-align: end;
+      flex: 1;
+      &-head {
+        &-name {
+          font-size: 16px;
+          line-height: 24px;
+          font-weight: 400;
+        }
+        &-count {
+          padding-top: 15px;
+          padding-bottom: 14px;
+          display: flex;
+          justify-content: end;
+          &-num {
+            margin-left: 16px;
+            margin-right: 16px;
+          }
+        }
+      }
+      &-price {
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 700;
+      }
+    }
+  }
+  &-ship, &-total {
+    border-top: 1px solid var(--cart-border);
+    padding-top: 16px;
+    padding-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    &-title {
+      font-weight: 400;
+    }
+    &-price {
+      font-weight: 700;
+    }
+  }
+}
+
+@media screen and (min-width: 372px) {
+  .cart {
+    padding: 32px 24px 0px 24px;
+    &-title {
+      display: block;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 22px;
+      padding-bottom: 34px;
+    }
+    &-item {
+      margin-bottom: 34px;
+      &-body {
+        margin-left: 21px;
+        display: flex;
+        justify-content: space-between;
+        &-head {
+          text-align: start;
+          &-count {
+            justify-content: start;
+          }
+        }
+      }
+    }
+    &-ship, &-total {
+      padding-bottom: 32px;
+    }
+  }
+}

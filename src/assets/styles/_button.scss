@@ -1,0 +1,13 @@
+button {
+  &.btn-minus, &.btn-plus {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--cart-button);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+  }
+}

@@ -11,8 +11,11 @@
   --radio-border: #F0F0F5;
   --cart-bg: #FFFFFF;
   --cart-button: #F0F0F5;
+  --cart-border: #F0F0F5;
   --footer-bg: #E5E5E5;
   --footer-text: #808080;
+  --jean1-url: url("https://i.imgur.com/MRdy9z2.png");
+  --jean2-url: url("https://i.imgur.com/a0BP98T.png");
 }
 
 [data-theme="dark"] {
@@ -25,6 +28,7 @@
   --radio-border: #5E5E5E;
   --cart-bg: #383838;
   --cart-button: #808080;
+  --cart-border: #FFFFFF 20%;
   --footer-bg: #333333;
   --footer-text: #FFFFFF 60%;
 }
