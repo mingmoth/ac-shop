@@ -30,6 +30,37 @@
       padding-top: 16px;
     }
   }
+  &-ship {
+    display: flex;
+    height: 60px;
+    align-items: center;
+    margin-bottom: 24px;
+    position: relative;
+    #ship {
+      margin: 20px;
+    }
+    &-body {
+      flex: 1;
+      padding: 11px 13px 11px 0;
+      font-weight: 400;
+      &-head {
+        display: flex;
+        justify-content: space-between;
+        &-title {
+          font-size: 14px;
+          line-height: 20px;
+        }
+        &-price {
+          font-size: 12px;
+          line-height: 16px;
+        }
+      }
+      &-info {
+        font-size: 12px;
+        line-height: 16px;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 372px) {
