@@ -2,11 +2,32 @@
 
 @import 'step';
 @import 'color';
+@import 'form';
+@import 'input';
 
 
 .main {
   width: 92.26%;
   margin: 56px auto 0 auto;
   border: 1px solid red;
+  &-title {
+    color: var(--text-content);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 38px;
+    padding-top: 16px;
+  }
+}
+
+@media screen and (min-width: 372px) {
+  .main {
+    width: 88.54%;
+    margin: 60px auto 0 auto;
+    &-title {
+      font-size: 32px;
+      line-height: 38px;
+      padding-top: 80px;
+    }
+  }
 }
 
