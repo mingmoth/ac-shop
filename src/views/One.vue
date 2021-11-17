@@ -4,7 +4,7 @@
     <div class="main-wrapper">
       <div class="main-left">
         <Step :step="step"/>
-        <Form :step="step"/>
+        <FormOne :step="step"/>
       </div>
       <div class="main-right">
         <Cart />
@@ -15,12 +15,12 @@
 
 <script>
 import Step from '../components/Step.vue'
-import Form from '../components/Form.vue'
+import FormOne from '../components/FormOne.vue'
 import Cart from '../components/Cart.vue'
 export default {
   name: 'Shop',
   components: {
-    Step, Form, Cart
+    Step, FormOne, Cart
   },
   data() {
     return {
