@@ -11,7 +11,6 @@
 .main {
   width: 92.26%;
   margin: 56px auto 0 auto;
-  border: 1px solid red;
   &-title {
     color: var(--text-content);
     font-size: 24px;
@@ -29,6 +28,17 @@
       font-size: 32px;
       line-height: 38px;
       padding-top: 80px;
+    }
+    &-wrapper {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-gap: 30px;
+      .main-left {
+        grid-column: 1/7;
+      }
+      .main-right {
+        grid-column: 8/13;
+      }
     }
   }
 }
