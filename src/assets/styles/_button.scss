@@ -10,4 +10,29 @@ button {
     font-size: 20px;
     font-weight: 700;
   }
+  &.btn-prev-left {
+    width: 32.2%;
+    text-align: start;
+  }
+  &.btn-next-left {
+    width: 32.2%;
+    background-color: var(--pink);
+    color: #FFFFFF;
+    height: 46px;
+    border-radius: 8px;
+  }
+  &.btn-prev-right {
+    color: var(--tect-content);
+    text-align: start;
+    width: 45.6%;
+    margin-right: 8.8%;
+    
+  }
+  &.btn-next-right {
+    background-color: var(--pink);
+    color: #FFFFFF;
+    height: 46px;
+    flex: 1;
+    border-radius: 8px;
+  }
 }

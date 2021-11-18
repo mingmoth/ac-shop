@@ -1,0 +1,27 @@
+.control {
+  &-right {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--cart-border);
+    display: flex;
+    justify-content: space-between;
+  }
+  &-left {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 372px) {
+  .control {
+    &-right {
+      display: none;
+    }
+    &-left {
+      display: block;
+      margin-top: 48px;
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

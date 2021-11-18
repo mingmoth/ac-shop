@@ -5,9 +5,11 @@
       <div class="main-left">
         <Step :step="step"/>
         <FormOne :step="step"/>
+        <LeftControl :step="step"/>
       </div>
       <div class="main-right">
         <Cart />
+        <RightControl :step="step"/>
       </div>
     </div>
   </div>
@@ -17,10 +19,12 @@
 import Step from '../components/Step.vue'
 import FormOne from '../components/FormOne.vue'
 import Cart from '../components/Cart.vue'
+import LeftControl from '../components/LeftControl.vue'
+import RightControl from '../components/RightControl.vue'
 export default {
   name: 'Shop',
   components: {
-    Step, FormOne, Cart
+    Step, FormOne, Cart, LeftControl, RightControl
   },
   data() {
     return {
