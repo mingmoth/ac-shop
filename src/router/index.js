@@ -14,17 +14,17 @@ export default new VueRouter({
     },
     {
       path: '/1',
-      name: 'one',
+      name: 'shop',
       component: One
     },
     {
       path: '/2',
-      name: 'second',
+      name: 'shop',
       component: () => import("../views/Second.vue")
     },
     {
       path: '/3',
-      name: 'third',
+      name: 'shop',
       component: () => import("../views/Third.vue")
     },
     {

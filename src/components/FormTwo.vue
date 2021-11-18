@@ -3,7 +3,7 @@
     <form action="">
       <div class="form-title">運送方式</div>
       <div class="form-ship">
-        <input type="radio" name="ship" id="ship" checked />
+        <input type="radio" name="ship" id="ship" @click="setDelivery('標準')" :checked="user.delivery !== 'DHL'"/>
         <div class="form-ship-body">
           <div class="form-ship-body-head">
             <div class="form-ship-body-head-title">標準運送</div>
@@ -13,7 +13,7 @@
         </div>
       </div>
       <div class="form-ship">
-        <input type="radio" name="ship" id="ship" />
+        <input type="radio" name="ship" id="ship" @click="setDelivery('DHL')" :checked="user.delivery === 'DHL'"/>
         <div class="form-ship-body">
           <div class="form-ship-body-head">
             <div class="form-ship-body-head-title">DHL 貨運</div>
@@ -25,3 +25,21 @@
     </form>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'FormTwo',
+  props: {
+    user: {
+      type: Object,
+      required: true
+    }
+  },
+  methods: {
+    setDelivery(ship) {
+      this.delivery = ship
+      this.$emit("set-delivery", ship)
+    }
+  }
+}
+</script>

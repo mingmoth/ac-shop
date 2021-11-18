@@ -9,6 +9,7 @@
           name="cardName"
           id="cardName"
           placeholder="John Doe"
+          v-model="user.cardName"
           required
         />
       </div>
@@ -19,6 +20,7 @@
           name="cardNum"
           id="cardNum"
           placeholder="1111 2222 3333 4444"
+          v-model="user.cardNum"
           required
         />
       </div>
@@ -30,14 +32,27 @@
             name="date"
             id="date"
             placeholder="MM/YY"
+            v-model="user.date"
             required
           />
         </div>
         <div class="form-validate-cvc">
           <label for="cvc">CVC / CCV</label>
-          <input type="number" name="cvc" id="cvc" placeholder="123" required />
+          <input type="number" name="cvc" id="cvc" placeholder="123" v-model="user.cvc" required />
         </div>
       </div>
     </form>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'FormThree',
+  props: {
+    user: {
+      type: Object,
+      required: true
+    }
+  }
+}
+</script>
