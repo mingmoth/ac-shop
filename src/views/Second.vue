@@ -15,6 +15,11 @@
       </div>
       <div class="main-right">
         <Cart />
+        <RightControl 
+          :step="step"
+          :completed="completed"
+          @next-step="nextStep"
+          @save-storage="saveStorage"/>
       </div>
     </div>
   </div>
@@ -25,13 +30,13 @@ import Step from '../components/Step.vue'
 import FormTwo from '../components/FormTwo.vue'
 import Cart from '../components/Cart.vue'
 import LeftControl from '../components/LeftControl.vue'
-
+import RightControl from '../components/RightControl.vue'
 const STORAGE_KEY = 'ac-shop'
 
 export default {
   name: 'Shop',
   components: {
-    Step, FormTwo, Cart, LeftControl
+    Step, FormTwo, Cart, LeftControl, RightControl
   },
   data() {
     return {

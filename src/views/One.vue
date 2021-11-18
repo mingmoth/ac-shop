@@ -16,7 +16,9 @@
         <Cart />
         <RightControl 
           :step="step"
-          :completed="completed"/>
+          :completed="completed"
+          @next-step="nextStep"
+          @save-storage="saveStorage"/>
       </div>
     </div>
   </div>
