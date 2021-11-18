@@ -13,7 +13,12 @@
           @save-storage="saveStorage"/>
       </div>
       <div class="main-right">
-        <Cart />
+        <Cart 
+          :user="user"
+          @jean-one-minus="jeanOneMinus"
+          @jean-one-plus="jeanOnePlus"
+          @jean-two-minus="jeanTwoMinus"
+          @jean-two-plus="jeanTwoPlus" />
         <RightControl 
           :step="step"
           :completed="completed"
@@ -52,7 +57,13 @@ export default {
         cardName: '',
         cardNum: '',
         date: '',
-        cvc: ''
+        cvc: '',
+        jean1Count: 1,
+        jean2Count: 1,
+        jean1Cost: 3999,
+        jean2Cost: 1299,
+        shipPrice: 0,
+        totalCost: 5298,
       },
       completed: false,
     }
@@ -64,15 +75,39 @@ export default {
           return this.completed = true
         }
       },
+      
       deep:true
-    }
+    },
+    
+    
   },
+  
   created() {
     this.user = JSON.parse(localStorage.getItem(STORAGE_KEY)) || this.user
   },
   methods: {
     nextStep() {
       this.step += 1
+    },
+    jeanOneMinus() {
+      this.user.jean1Count -= 1
+      this.user.jean1Cost = this.user.jean1Count*3999
+      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost
+    },
+    jeanOnePlus() {
+      this.user.jean1Count += 1
+      this.user.jean1Cost = this.user.jean1Count*3999
+      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost
+    },
+    jeanTwoMinus() {
+      this.user.jean2Count -= 1
+      this.user.jean2Cost = this.user.jean2Count*1299
+      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost
+    },
+    jeanTwoPlus() {
+      this.user.jean2Count += 1
+      this.user.jean2Cost = this.user.jean2Count*1299
+      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost
     },
     saveStorage() {
       console.log('saveStorage')

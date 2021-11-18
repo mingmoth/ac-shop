@@ -14,7 +14,12 @@
           @save-storage="saveStorage"/>
       </div>
       <div class="main-right">
-        <Cart />
+        <Cart 
+          :user="user"
+          @jean-one-minus="jeanOneMinus"
+          @jean-one-plus="jeanOnePlus"
+          @jean-two-minus="jeanTwoMinus"
+          @jean-two-plus="jeanTwoPlus" />
         <RightControl 
           :step="step"
           :completed="completed"
@@ -52,12 +57,37 @@ export default {
     nextStep() {
       this.step += 1
     },
+    jeanOneMinus() {
+      this.user.jean1Count -= 1
+      this.user.jean1Cost = this.user.jean1Count*3999
+      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost
+    },
+    jeanOnePlus() {
+      this.user.jean1Count += 1
+      this.user.jean1Cost = this.user.jean1Count*3999
+      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost
+    },
+    jeanTwoMinus() {
+      this.user.jean2Count -= 1
+      this.user.jean2Cost = this.user.jean2Count*1299
+      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost
+    },
+    jeanTwoPlus() {
+      this.user.jean2Count += 1
+      this.user.jean2Cost = this.user.jean2Count*1299
+      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost
+    },
     saveStorage() {
       console.log('saveStorage')
       localStorage.setItem(STORAGE_KEY, JSON.stringify(this.user))
     },
     setDelivery(ship) {
       this.user.delivery = ship
+      if(this.user.delivery === "DHL") {
+        return this.user.shipPrice = 500
+      } else if (this.user.delivery === "標準") {
+        return this.user.shipPice = 0
+      }
     }
   }
 }
