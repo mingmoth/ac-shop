@@ -92,22 +92,22 @@ export default {
     jeanOneMinus() {
       this.user.jean1Count -= 1
       this.user.jean1Cost = this.user.jean1Count*3999
-      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost
+      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost+ this.user.shipPrice
     },
     jeanOnePlus() {
       this.user.jean1Count += 1
       this.user.jean1Cost = this.user.jean1Count*3999
-      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost
+      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost+ this.user.shipPrice
     },
     jeanTwoMinus() {
       this.user.jean2Count -= 1
       this.user.jean2Cost = this.user.jean2Count*1299
-      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost
+      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost+ this.user.shipPrice
     },
     jeanTwoPlus() {
       this.user.jean2Count += 1
       this.user.jean2Cost = this.user.jean2Count*1299
-      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost
+      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost + this.user.shipPrice
     },
     saveStorage() {
       console.log('saveStorage')

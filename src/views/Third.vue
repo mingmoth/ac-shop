@@ -27,6 +27,9 @@
           @save-storage="saveStorage"/>
       </div>
     </div>
+    <SubmitModal 
+      :user="user"
+      @end-shop="endShop" />
   </div>
 </template>
 
@@ -36,12 +39,13 @@ import FormThree from '../components/FormThree.vue'
 import Cart from '../components/Cart.vue'
 import LeftControl from '../components/LeftControl.vue'
 import RightControl from '../components/RightControl.vue'
+import SubmitModal from '../components/SubmitModal.vue'
 const STORAGE_KEY = 'ac-shop'
 
 export default {
   name: 'Shop',
   components: {
-    Step, FormThree, Cart, LeftControl, RightControl
+    Step, FormThree, Cart, LeftControl, RightControl, SubmitModal
   },
   data() {
     return {
@@ -88,11 +92,15 @@ export default {
       this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost
     },
     saveStorage() {
-      console.log('saveStorage')
+      const paycheck = JSON.stringify(this.user)
+      console.log('saveStorage:', paycheck)
       localStorage.setItem(STORAGE_KEY, JSON.stringify(this.user))
     },
     submitCart() {
       console.log(this.user)
+    },
+    endShop() {
+      localStorage.clear()
     }
   }
 }

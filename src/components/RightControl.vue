@@ -13,6 +13,8 @@
         <button 
           class="btn btn-next-right"
           :disabled="!completed"
+          data-bs-toggle="modal"
+          data-bs-target="#submit-cart"
           @click="saveStorage"
           @submit="submitCart"
           >確認下單
