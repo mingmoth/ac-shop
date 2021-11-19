@@ -1,0 +1,41 @@
+.nav {
+  position: fixed;
+  top: 0%;
+  width: 92.26%;
+  left: 3.87%;
+  background: var(--bg);
+  &-logo {
+    width: 135.86px;
+    height: 24px;
+    background: var(--logo-url);
+    background-size: 100% 100%;
+    position: absolute;
+    left: 50%;
+    margin-left: -67.98px;
+    margin-top: 16px;
+  }
+  &-toggle {
+    width: 20px;
+    height: 20px;
+    background: var(--toggle-url);
+    background-size: 100% 100%;
+    margin-top: 20px;
+  }
+}
+
+
+@media screen and (min-width:372px) {
+  .nav {
+    width: 88.54%;
+    left: 6.73%;
+    &-logo {
+      width: 169.83px;
+      height: 30px;
+      margin-left: -84.915px;
+      margin-top: 15px;
+    }
+    &-toggle {
+      display: none;
+    }
+  }  
+}
