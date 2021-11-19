@@ -5,6 +5,7 @@
     font-weight: 700;
     line-height: 24px;
     padding-bottom: 24px;
+    color: var(--text-content);
   }
   &-calling {
     display: grid;
@@ -36,6 +37,7 @@
     align-items: center;
     margin-bottom: 24px;
     position: relative;
+    color: var(--text-content);
     #ship {
       margin: 20px;
     }

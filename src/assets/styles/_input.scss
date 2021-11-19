@@ -6,7 +6,8 @@
   font-size: 12px;
   font-weight: 400;
   line-height: 16px;
-  color: var(--input-holder);
+  color: var(--text-content);
+  background: var(--bg);
   &:hover, &:focus {
     border: 1px solid var(--input-border);
   }

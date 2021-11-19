@@ -11,6 +11,7 @@ button {
     font-weight: 700;
   }
   &.btn-prev-left {
+    color: var(--text-content);
     text-align: start;
     width: 100%;
   }

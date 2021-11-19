@@ -2,8 +2,11 @@
   border: 1px solid var(--cart-border);
   border-radius: 8px;
   padding: 18px 16px 0px 16px;
+  color: var(--text-content);
+  background: var(--cart-bg);
   &-title {
     display: none;
+    
   }
   &-item {
     display: flex;
