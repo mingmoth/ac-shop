@@ -53,29 +53,36 @@ export default {
   created() {
     this.user = JSON.parse(localStorage.getItem(STORAGE_KEY))
   },
+  watch: {
+    user: {
+      handler: function() {
+        this.user.jean1Cost = this.user.jean1Count*3999
+        this.user.jean2Cost = this.user.jean2Count*1299
+        this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost+ this.user.shipPrice
+        if(this.user.delivery === "DHL") {
+        this.user.shipPrice = 500
+        } else if (this.user.delivery === "標準") {
+          this.user.shipPrice = 0
+        }
+      },
+      deep:true
+    },
+  },
   methods: {
     nextStep() {
       this.step += 1
     },
     jeanOneMinus() {
       this.user.jean1Count -= 1
-      this.user.jean1Cost = this.user.jean1Count*3999
-      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost + this.user.shipPrice
     },
     jeanOnePlus() {
       this.user.jean1Count += 1
-      this.user.jean1Cost = this.user.jean1Count*3999
-      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost + this.user.shipPrice
     },
     jeanTwoMinus() {
       this.user.jean2Count -= 1
-      this.user.jean2Cost = this.user.jean2Count*1299
-      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost + this.user.shipPrice
     },
     jeanTwoPlus() {
       this.user.jean2Count += 1
-      this.user.jean2Cost = this.user.jean2Count*1299
-      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost + this.user.shipPrice
     },
     saveStorage() {
       console.log('saveStorage')
@@ -83,14 +90,6 @@ export default {
     },
     setDelivery(ship) {
       this.user.delivery = ship
-      if(this.user.delivery === "DHL") {
-        this.user.shipPrice = 500
-        this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost + this.user.shipPrice
-      } else if (this.user.delivery === "標準") {
-        this.user.shipPrice = 0
-        this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost + this.user.shipPrice
-      }
-      
     }
   }
 }

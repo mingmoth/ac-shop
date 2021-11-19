@@ -60,6 +60,9 @@ export default {
   watch: {
     user: {
       handler: function() {
+        this.user.jean1Cost = this.user.jean1Count*3999
+        this.user.jean2Cost = this.user.jean2Count*1299
+        this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost+ this.user.shipPrice
         if(this.user.cardName && this.user.cardNum && this.user.date && this.user.cvc) {
           return this.completed = true
         }
@@ -73,23 +76,15 @@ export default {
     },
     jeanOneMinus() {
       this.user.jean1Count -= 1
-      this.user.jean1Cost = this.user.jean1Count*3999
-      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost
     },
     jeanOnePlus() {
       this.user.jean1Count += 1
-      this.user.jean1Cost = this.user.jean1Count*3999
-      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost
     },
     jeanTwoMinus() {
       this.user.jean2Count -= 1
-      this.user.jean2Cost = this.user.jean2Count*1299
-      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost
     },
     jeanTwoPlus() {
       this.user.jean2Count += 1
-      this.user.jean2Cost = this.user.jean2Count*1299
-      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost
     },
     saveStorage() {
       const paycheck = JSON.stringify(this.user)

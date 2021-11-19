@@ -71,17 +71,16 @@ export default {
   watch: {
     user: {
       handler: function() {
+        this.user.jean1Cost = this.user.jean1Count*3999
+        this.user.jean2Cost = this.user.jean2Count*1299
+        this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost+ this.user.shipPrice
         if(this.user.title && this.user.name && this.user.tel && this.user.email && this.user.county && this.user.address) {
           return this.completed = true
         }
       },
-      
       deep:true
     },
-    
-    
   },
-  
   created() {
     this.user = JSON.parse(localStorage.getItem(STORAGE_KEY)) || this.user
   },
@@ -91,23 +90,15 @@ export default {
     },
     jeanOneMinus() {
       this.user.jean1Count -= 1
-      this.user.jean1Cost = this.user.jean1Count*3999
-      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost+ this.user.shipPrice
     },
     jeanOnePlus() {
       this.user.jean1Count += 1
-      this.user.jean1Cost = this.user.jean1Count*3999
-      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost+ this.user.shipPrice
     },
     jeanTwoMinus() {
       this.user.jean2Count -= 1
-      this.user.jean2Cost = this.user.jean2Count*1299
-      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost+ this.user.shipPrice
     },
     jeanTwoPlus() {
       this.user.jean2Count += 1
-      this.user.jean2Cost = this.user.jean2Count*1299
-      this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost + this.user.shipPrice
     },
     saveStorage() {
       console.log('saveStorage')
