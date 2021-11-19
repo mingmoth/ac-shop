@@ -22,11 +22,9 @@ button {
     border-radius: 8px;
   }
   &.btn-prev-right {
-    color: var(--tect-content);
+    color: var(--text-content);
     text-align: start;
-    width: 45.6%;
-    margin-right: 8.8%;
-    
+    height: 46px;
   }
   &.btn-next-right {
     background-color: var(--pink);
