@@ -2,6 +2,7 @@
   position: fixed;
   top: 0%;
   width: 92.26%;
+  height: 56px;
   left: 3.87%;
   background: var(--bg);
   &-logo {
@@ -14,6 +15,14 @@
     margin-left: -67.98px;
     margin-top: 16px;
   }
+  #nav-toggle {
+    display: none;
+    &:checked ~ .nav-navbar {
+      transform: scale(1, 1);
+      transform-origin: top;
+      transition: transform 0.3s ease-out;
+    }
+  }
   &-toggle {
     width: 20px;
     height: 20px;
@@ -21,13 +30,63 @@
     background-size: 100% 100%;
     margin-top: 20px;
   }
+  &-navbar {
+    display: block;
+    padding-top: 21px;
+    transform: scale(1, 0);
+    background: var(--bg);
+    width: 100%;
+    &-select {
+      &-list {
+        &-link {
+          height: 72px;
+          padding-top: 24px;
+          border-bottom: 1px solid var(--cart-border);
+          text-align: center;
+          font-size: 16px;
+          font-weight: 500;
+        }
+      }
+    }
+    &-option {
+      padding-top: 24px;
+      padding-bottom: 24px;
+      &-wrapper {
+        width: 43.93%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        &-search {
+          width: 24px;
+          height: 24px;
+          background: var(--search-url);
+          background-size: 100% 100%;
+        }
+        &-cart {
+          width: 24px;
+          height: 24px;
+          background: var(--cart-url);
+          background-size: 100% 100%;
+        }
+        &-switch {
+          width: 24px;
+          height: 24px;
+          background: var(--switch-url);
+          background-size: 100% 100%;
+        }
+        #darkmode {
+          display: none;
+        }
+      }
+    }
+  }
 }
 
 
 @media screen and (min-width:372px) {
   .nav {
     width: 88.54%;
-    left: 6.73%;
+    left: 5.73%;
     &-logo {
       width: 169.83px;
       height: 30px;
@@ -36,6 +95,36 @@
     }
     &-toggle {
       display: none;
+    }
+    &-navbar {
+      transform: scale(1, 1);
+      background: transparent;
+      padding-top: 0;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-gap: 30px;
+      &-select {
+        grid-column: 1/5;
+        &-list {
+          display: flex;
+          justify-content: space-between;
+          &-link {
+            padding-top: 18.19px;
+            border-bottom: none;
+          }
+        }
+      }
+      &-option {
+        grid-column: 9/13;
+        &-wrapper {
+          width: 100%;
+          display: flex;
+          justify-content: end;
+          &-search, &-cart, &-switch {
+            margin-left: 32.25px;
+          }
+        }
+      }
     }
   }  
 }
