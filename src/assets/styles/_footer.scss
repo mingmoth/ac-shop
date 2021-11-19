@@ -1,0 +1,56 @@
+footer {
+  display: none;
+}
+
+@media screen and (min-width:372px) {
+  footer {
+    display: block;
+    margin-top: 124px;
+    background: var(--footer-bg);
+    .footer {
+      margin: 0 auto 0 auto;
+      width: 77%;
+      display: flex;
+      justify-content: space-between;
+      padding-top: 64px;
+      text-align: start;
+      &-logo {
+        background: var(--logo-url);
+        background-size: 100% 100%;
+        margin-top: 62px;
+        width: 175.49px;
+        height: 31px;
+      }
+      &-title {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 24px;
+        color: var(--text-content);
+      }
+      &-image-container {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        width: 104px;
+        margin-top: 8px;
+      }
+      #p {
+        font-size: 16px;
+        color: var(--footer-text);
+        margin: 0 0 8px 0;
+      }
+      .fb {
+        width: 9.33px;
+        height: 20px;
+      }
+      .ig {
+        width: 20px;
+        height: 20px;
+      }
+      .phone {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
