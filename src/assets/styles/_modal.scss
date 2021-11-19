@@ -1,0 +1,37 @@
+.modal {
+  &-header {
+    &-title {
+      font-size: 20px;
+      font-weight: 700;
+    }
+  }
+  &-body {
+    &-user {
+      &-title {
+        font-size: 18px;
+        font-weight: 700;
+      }
+    }
+    &-product {
+      &-title {
+        padding-top: 12px;
+        font-size: 18px;
+        font-weight: 700;
+      }
+      &-totalCost {
+        float: right;
+        font-size: 20px;
+        font-weight: 700;
+        &-num {
+          padding-left: 8px;
+          font-size: 24px;
+          color: var(--pink);
+        }
+      }
+    }
+  }
+  &-footer {
+    display: flex;
+    justify-content: space-between;
+  }
+}

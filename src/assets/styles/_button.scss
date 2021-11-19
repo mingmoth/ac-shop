@@ -35,4 +35,8 @@ button {
     flex: 1;
     border-radius: 8px;
   }
+  &.btn-clear {
+    background-color: var(--pink);
+    color: #FFFFFF;
+  }
 }
