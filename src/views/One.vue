@@ -15,10 +15,9 @@
       <div class="main-right">
         <Cart 
           :user="user"
-          @jean-one-minus="jeanOneMinus"
-          @jean-one-plus="jeanOnePlus"
-          @jean-two-minus="jeanTwoMinus"
-          @jean-two-plus="jeanTwoPlus" />
+          @cart-item-minus="cartItemMinus"
+          @cart-item-plus="cartItemPlus"
+           />
         <RightControl 
           :step="step"
           :completed="completed"
@@ -58,22 +57,37 @@ export default {
         cardNum: '',
         date: '',
         cvc: '',
-        jean1Count: 1,
-        jean2Count: 1,
-        jean1Cost: 3999,
-        jean2Cost: 1299,
+        cartItems: [
+          {
+            id: 1,
+            name: '破壞補釘修身牛仔褲',
+            price: 3999,
+            count: 1,
+            sum: 3999,
+          },
+          {
+            id: 2,
+            name: '刷色直筒牛仔褲',
+            price: 1299,
+            count: 1,
+            sum: 1299,
+          },
+        ],
         shipPrice: 0,
         totalCost: 5298,
       },
+      
       completed: false,
     }
   },
   watch: {
     user: {
       handler: function() {
-        this.user.jean1Cost = this.user.jean1Count*3999
-        this.user.jean2Cost = this.user.jean2Count*1299
-        this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost+ this.user.shipPrice
+        let total = 0
+        this.user.cartItems.map((cartItem) => {
+          total += cartItem.sum
+        })
+        this.user.totalCost = total + this.user.shipPrice
         if(this.user.title && this.user.name && this.user.tel && this.user.email && this.user.county && this.user.address) {
           return this.completed = true
         }
@@ -88,20 +102,33 @@ export default {
     nextStep() {
       this.step += 1
     },
-    jeanOneMinus() {
-      this.user.jean1Count -= 1
+    cartItemMinus(cartItemId) {
+      this.user.cartItems = this.user.cartItems.map((cartItem) => {
+        if(cartItem.id === cartItemId) {
+          return {
+            ...cartItem,
+            count: cartItem.count -= 1,
+            sum: cartItem.count * cartItem.price,
+          }
+        } else {
+          return cartItem
+        }
+      })
     },
-    jeanOnePlus() {
-      this.user.jean1Count += 1
-    },
-    jeanTwoMinus() {
-      this.user.jean2Count -= 1
-    },
-    jeanTwoPlus() {
-      this.user.jean2Count += 1
+    cartItemPlus(cartItemId) {
+      this.user.cartItems = this.user.cartItems.map((cartItem) => {
+        if(cartItem.id === cartItemId) {
+          return {
+            ...cartItem,
+            count: cartItem.count += 1,
+            sum: cartItem.count * cartItem.price
+          }
+        } else {
+          return cartItem
+        }
+      })
     },
     saveStorage() {
-      console.log('saveStorage')
       localStorage.setItem(STORAGE_KEY, JSON.stringify(this.user))
     }
   }

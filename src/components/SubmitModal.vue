@@ -15,8 +15,11 @@
           </div>
           <div class="modal-body-product">
             <div class="modal-body-product-title">商品明細</div>
-            <div class="modal-body-product-jean1">破壞補丁修身牛仔褲: {{user.jean1Count}}件</div>
-            <div class="modal-body-product-jean2">刷色直筒牛仔褲: {{user.jean2Count}}件</div>
+            <div
+              class="modal-body-product-jean"
+              v-for="cartItem in user.cartItems"
+              :key="cartItem.id">{{cartItem.name}}: {{cartItem.count}}件</div>
+            
             <div class="modal-body-product-ship">運送方式: {{user.delivery}}運送</div>
             <div class="modal-body-product-shipPrice">運費: {{user.shipPrice}}</div>
             <div class="modal-body-product-totalCost">總金額: <span class="modal-body-product-totalCost-num">{{user.totalCost}}</span></div>

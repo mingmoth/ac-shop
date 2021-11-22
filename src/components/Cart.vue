@@ -1,42 +1,23 @@
 <template>
   <div class="cart">
     <div class="cart-title">購物籃</div>
-    <div class="cart-item">
+    <div class="cart-item" v-for="cartItem in user.cartItems" :key="cartItem.id">
       <div class="cart-item-img" id="jean1"></div>
       <div class="cart-item-body">
         <div class="cart-item-body-head">
-          <div class="cart-item-body-head-name">破壞補丁修身牛仔褲</div>
+          <div class="cart-item-body-head-name">{{cartItem.name}}</div>
           <div class="cart-item-body-head-count">
             <button 
               class="btn btn-minus" 
-              :disabled="user.jean1Count < 1"
-              @click.stop.prevent="jean1Minus">-</button>
-            <div class="cart-item-body-head-count-num">{{user.jean1Count}}</div>
+              :disabled="cartItem.count < 1"
+              @click.stop.prevent="cartItemMinus(cartItem.id)">-</button>
+            <div class="cart-item-body-head-count-num">{{cartItem.count}}</div>
             <button 
               class="btn btn-plus"
-              @click.stop.prevent="jean1Plus">+</button>
+              @click.stop.prevent="cartItemPlus(cartItem.id)">+</button>
           </div>
         </div>
-        <div class="cart-item-body-price">${{user.jean1Cost}}</div>
-      </div>
-    </div>
-    <div class="cart-item">
-      <div class="cart-item-img" id="jean2"></div>
-      <div class="cart-item-body">
-        <div class="cart-item-body-head">
-          <div class="cart-item-body-head-name">刷色直筒牛仔褲</div>
-          <div class="cart-item-body-head-count">
-            <button 
-              class="btn btn-minus" 
-              :disabled="user.jean2Count < 1"
-              @click.stop.prevent="jean2Minus">-</button>
-            <div class="cart-item-body-head-count-num">{{user.jean2Count}}</div>
-            <button 
-              class="btn btn-plus"
-              @click.stop.prevent="jean2Plus">+</button>
-          </div>
-        </div>
-        <div class="cart-item-body-price">${{user.jean2Cost}}</div>
+        <div class="cart-item-body-price">${{cartItem.sum}}</div>
       </div>
     </div>
     <div class="cart-ship">
@@ -57,7 +38,7 @@ export default {
     user: {
       type: Object,
       required: true
-    }
+    },
   },
   computed: {
     shipPrice() {
@@ -69,17 +50,11 @@ export default {
     }
   },
   methods: {
-    jean1Minus() {
-      this.$emit("jean-one-minus")
+    cartItemMinus(cartItemId) {
+      this.$emit("cart-item-minus", cartItemId)
     },
-    jean1Plus() {
-      this.$emit("jean-one-plus")
-    },
-    jean2Minus() {
-      this.$emit("jean-two-minus")
-    },
-    jean2Plus() {
-      this.$emit("jean-two-plus")
+    cartItemPlus(cartItemId) {
+      this.$emit("cart-item-plus", cartItemId)
     },
   }
 }

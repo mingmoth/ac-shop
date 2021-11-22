@@ -16,10 +16,8 @@
       <div class="main-right">
         <Cart 
           :user="user"
-          @jean-one-minus="jeanOneMinus"
-          @jean-one-plus="jeanOnePlus"
-          @jean-two-minus="jeanTwoMinus"
-          @jean-two-plus="jeanTwoPlus" />
+          @cart-item-minus="cartItemMinus"
+          @cart-item-plus="cartItemPlus" />
         <RightControl 
           :step="step"
           :completed="completed"
@@ -56,14 +54,16 @@ export default {
   watch: {
     user: {
       handler: function() {
-        this.user.jean1Cost = this.user.jean1Count*3999
-        this.user.jean2Cost = this.user.jean2Count*1299
-        this.user.totalCost = this.user.jean1Cost + this.user.jean2Cost+ this.user.shipPrice
         if(this.user.delivery === "DHL") {
         this.user.shipPrice = 500
         } else if (this.user.delivery === "標準") {
           this.user.shipPrice = 0
         }
+        let total = 0
+        this.user.cartItems.map((cartItem) => {
+          total += cartItem.sum
+        })
+        this.user.totalCost = total + this.user.shipPrice
       },
       deep:true
     },
@@ -72,20 +72,33 @@ export default {
     nextStep() {
       this.step += 1
     },
-    jeanOneMinus() {
-      this.user.jean1Count -= 1
+    cartItemMinus(cartItemId) {
+      this.user.cartItems = this.user.cartItems.map((cartItem) => {
+        if(cartItem.id === cartItemId) {
+          return {
+            ...cartItem,
+            count: cartItem.count -= 1,
+            sum: cartItem.count * cartItem.price,
+          }
+        } else {
+          return cartItem
+        }
+      })
     },
-    jeanOnePlus() {
-      this.user.jean1Count += 1
-    },
-    jeanTwoMinus() {
-      this.user.jean2Count -= 1
-    },
-    jeanTwoPlus() {
-      this.user.jean2Count += 1
+    cartItemPlus(cartItemId) {
+      this.user.cartItems = this.user.cartItems.map((cartItem) => {
+        if(cartItem.id === cartItemId) {
+          return {
+            ...cartItem,
+            count: cartItem.count += 1,
+            sum: cartItem.count * cartItem.price
+          }
+        } else {
+          return cartItem
+        }
+      })
     },
     saveStorage() {
-      console.log('saveStorage')
       localStorage.setItem(STORAGE_KEY, JSON.stringify(this.user))
     },
     setDelivery(ship) {
