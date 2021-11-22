@@ -64,6 +64,7 @@ export default {
             price: 3999,
             count: 1,
             sum: 3999,
+            img: "https://i.imgur.com/MRdy9z2.png"
           },
           {
             id: 2,
@@ -71,6 +72,7 @@ export default {
             price: 1299,
             count: 1,
             sum: 1299,
+            img: "https://i.imgur.com/a0BP98T.png"
           },
         ],
         shipPrice: 0,

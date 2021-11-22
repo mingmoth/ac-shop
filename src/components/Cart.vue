@@ -2,7 +2,7 @@
   <div class="cart">
     <div class="cart-title">購物籃</div>
     <div class="cart-item" v-for="cartItem in user.cartItems" :key="cartItem.id">
-      <div class="cart-item-img" id="jean1"></div>
+      <img :src="cartItem.img" alt="" class="cart-item-img">
       <div class="cart-item-body">
         <div class="cart-item-body-head">
           <div class="cart-item-body-head-name">{{cartItem.name}}</div>
